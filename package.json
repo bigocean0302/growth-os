@@ -4,6 +4,8 @@
   "private": true,
   "description": "个人成长 OS（Growth OS）· Android App 第一版",
   "scripts": {
+    "eas-build-pre-install": "npm config set legacy-peer-deps true && npm config set force true",
+    "eas-build-post-install": "npx cap sync android || true",
     "build": "node scripts/build-web.mjs",
     "sync": "npm run build && cap sync android",
     "android": "npm run sync && cap open android",
