@@ -11,11 +11,12 @@
     "preview": {
       "distribution": "internal",
       "node": "22.0.0",
-      "jdk": "17",
+      "image": "latest",
       "android": {
         "buildType": "apk"
       },
       "env": {
+        "JAVA_HOME": "/usr/lib/jvm/java-17-openjdk-amd64",
         "NPM_CONFIG_LEGACY_PEER_DEPS": "true",
         "NPM_CONFIG_FORCE": "true"
       }
