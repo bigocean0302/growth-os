@@ -11,6 +11,7 @@
     "preview": {
       "distribution": "internal",
       "node": "22.0.0",
+      "jdk": "17",
       "android": {
         "buildType": "apk"
       },
