@@ -27,7 +27,7 @@ jobs:
         run: npm install --ignore-scripts
 
       # 5. 执行 EAS 云端打包
-      - name: Build with EAS
+      - name: Build Android APK
         env:
           EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
-        run: eas build --platform android --profile preview --non-interactive
+        run: npx eas-cli build --platform android --profile preview --non-interactive
