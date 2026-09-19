@@ -11,9 +11,9 @@
     "preview": {
       "distribution": "internal",
       "node": "22.0.0",
-      "image": "latest",
       "android": {
-        "buildType": "apk"
+        "buildType": "apk",
+        "image": "latest"
       },
       "env": {
         "JAVA_HOME": "/usr/lib/jvm/java-17-openjdk-amd64",
