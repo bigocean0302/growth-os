@@ -8,7 +8,6 @@
     "sync": "npm run build && cap sync android",
     "android": "npm run sync && cap open android",
     "apk": "npm run sync && node scripts/gradle.mjs assembleDebug",
-    "install": "npm run apk && node scripts/gradle.mjs installDebug",
     "aab": "npm run sync && node scripts/gradle.mjs bundleRelease",
     "check": "node _check.js",
     "smoke": "node _smoke.js"
