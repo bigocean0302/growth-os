@@ -12,19 +12,19 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # 2. 配置稳定的 Node.js 环境 (指定 Node 20)
+      # 2. 配置满足 Capacitor/Expo 要求的 Node 22 环境
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
 
-      # 3. 全局安装 EAS CLI (绕过 expo-github-action 的 yarn 报错)
+      # 3. 全局安装 EAS CLI
       - name: Install EAS CLI
         run: npm install -g eas-cli
 
-      # 4. 安装项目依赖
+      # 4. 安装项目依赖（加上 --ignore-scripts 绕过自动执行本地 gradle 编译脚本）
       - name: Install project dependencies
-        run: npm install
+        run: npm install --ignore-scripts
 
       # 5. 执行 EAS 云端打包
       - name: Build with EAS
