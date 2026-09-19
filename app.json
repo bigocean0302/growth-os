@@ -1,9 +1,25 @@
 {
   "expo": {
-    "extra": {
-      "eas": {
-        "projectId": "8da40eb1-e396-46c8-88ff-1db602dc4249"
+    "name": "growth-os",
+    "slug": "growth-os",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "android": {
+      "package": "com.bigocean0302.growthos",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
       }
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
     }
   }
 }
