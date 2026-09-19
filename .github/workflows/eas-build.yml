@@ -1,18 +1,33 @@
 name: EAS Build
+
 on:
   push:
     branches: [ main, master ]
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      # 1. 拉取仓库代码
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 2. 配置稳定的 Node.js 环境 (指定 Node 20)
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: 18
-      - uses: expo/expo-github-action@v8
-        with:
-          eas-version: latest
-          token: ${{ secrets.EXPO_TOKEN }}
-      - run: npm install
-      - run: eas build --platform android --profile preview --non-interactive
+          node-version: 20
+
+      # 3. 全局安装 EAS CLI (绕过 expo-github-action 的 yarn 报错)
+      - name: Install EAS CLI
+        run: npm install -g eas-cli
+
+      # 4. 安装项目依赖
+      - name: Install project dependencies
+        run: npm install
+
+      # 5. 执行 EAS 云端打包
+      - name: Build with EAS
+        env:
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+        run: eas build --platform android --profile preview --non-interactive
