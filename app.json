@@ -2,6 +2,7 @@
   "expo": {
     "name": "growth-os",
     "slug": "growth-os",
+    "owner": "bigocean0302",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -20,11 +21,6 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    },
-    "extra": {
-      "eas": {
-        "projectId": "4758f45c-8623-4b5b-965c-3c3109e1748c"
-      }
     }
   }
 }
