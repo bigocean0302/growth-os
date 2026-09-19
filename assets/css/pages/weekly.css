@@ -1,0 +1,178 @@
+/* weekly.css · 周报页 */
+
+.weekly-hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  padding: var(--sp-5);
+  border-radius: var(--r-xl);
+  background: linear-gradient(160deg, var(--green-50) 0%, var(--surface) 55%, var(--blue-50) 100%);
+  box-shadow: var(--shadow-1);
+  overflow: hidden;
+}
+
+.weekly-hero::after {
+  content: "";
+  position: absolute;
+  top: -40px;
+  right: -30px;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--green-100) 0%, rgba(220, 234, 217, 0) 70%);
+  opacity: .6;
+  pointer-events: none;
+}
+
+.weekly-hero__row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--sp-3);
+}
+
+.weekly-hero__label {
+  font-size: var(--fs-12);
+  color: var(--text-2);
+  letter-spacing: .03em;
+}
+
+.weekly-hero__value {
+  margin-top: var(--sp-1);
+  font-size: var(--fs-34);
+  font-weight: 700;
+  line-height: 1;
+  color: var(--text-1);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -.02em;
+}
+
+/* 7 天柱状图 */
+.bars {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+  align-items: end;
+  height: 64px;
+}
+
+.bar-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  height: 100%;
+  justify-content: flex-end;
+}
+
+.bar-col__fill {
+  width: 100%;
+  border-radius: 4px 4px 2px 2px;
+  background: var(--green-200);
+  transform-origin: bottom center;
+  transform: scaleY(0);
+  transition: transform 600ms var(--ease-out);
+}
+
+.bar-col.is-max .bar-col__fill {
+  background: var(--green-400);
+}
+
+.bar-col.is-today .bar-col__fill {
+  box-shadow: inset 0 0 0 1.5px var(--green-600);
+}
+
+.bar-col__label {
+  font-size: var(--fs-11);
+  color: var(--text-3);
+}
+
+/* 分领域 */
+.domain-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--sp-2);
+  align-items: baseline;
+  padding: var(--sp-2) 0;
+}
+
+.domain-row + .domain-row {
+  border-top: 1px solid var(--divider);
+}
+
+.domain-name {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-size: var(--fs-15);
+  font-weight: 600;
+}
+
+.domain-sub {
+  margin-top: 4px;
+  font-size: var(--fs-12);
+  color: var(--text-3);
+  line-height: 1.5;
+}
+
+.domain-value {
+  font-size: var(--fs-15);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+/* 习惯点阵 */
+.habit-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.habit-dot {
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: var(--r-xs);
+  background: var(--surface-3);
+  color: var(--text-inverse);
+}
+
+.habit-dot.is-done {
+  background: var(--green-400);
+}
+
+.habit-dot.is-today {
+  box-shadow: inset 0 0 0 1.5px var(--green-500);
+}
+
+/* 最佳 / 建议 */
+.suggest-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+.suggest-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--sp-3) var(--sp-4);
+  border-radius: var(--r-pill);
+  background: var(--surface-2);
+  font-size: var(--fs-14);
+}
+
+.copy-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-2);
+  width: 100%;
+  height: 48px;
+  margin-top: var(--gap-sec);
+  border-radius: var(--r-md);
+  border: 1px solid var(--border);
+  color: var(--text-2);
+  font-size: var(--fs-14);
+}

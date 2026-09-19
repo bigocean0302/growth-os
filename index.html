@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="green">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1, user-scalable=no">
+  <script>
+    /* 真机（Capacitor WebView）环境检测：隐藏原型自带的假状态栏与手机外壳，
+       让 App 真正占满屏幕并使用系统安全区。浏览器预览时不受影响。 */
+    (function () {
+      var native = (location.protocol === 'capacitor:' || location.protocol === 'file:' &&
+        /android/i.test(navigator.userAgent) && !!window.Capacitor) || !!window.Capacitor;
+      if (native) document.documentElement.setAttribute('data-native', '1');
+    })();
+  </script>
+  <title>个人成长 OS · Growth OS</title>
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/shell.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/pages/today.css">
+  <link rel="stylesheet" href="assets/css/pages/growth.css">
+  <link rel="stylesheet" href="assets/css/pages/capture.css">
+  <link rel="stylesheet" href="assets/css/pages/reading.css">
+  <link rel="stylesheet" href="assets/css/pages/weekly.css">
+  <link rel="stylesheet" href="assets/css/pages/me.css">
+</head>
+
+<body>
+  <div class="desk">
+    <div class="phone">
+      <div class="screen">
+
+        <!-- 状态栏 -->
+        <div class="statusbar">
+          <span class="statusbar__time">9:41</span>
+          <span class="statusbar__icons">
+            <svg width="18" height="12" viewBox="0 0 18 12" fill="currentColor">
+              <rect x="0" y="8" width="3" height="4" rx="1" />
+              <rect x="5" y="6" width="3" height="6" rx="1" />
+              <rect x="10" y="3" width="3" height="9" rx="1" />
+              <rect x="15" y="0" width="3" height="12" rx="1" opacity=".35" />
+            </svg>
+            <svg width="16" height="12" viewBox="0 0 16 12" fill="none" stroke="currentColor" stroke-width="1.6"
+              stroke-linecap="round">
+              <path d="M1 4.2a10 10 0 0 1 14 0" />
+              <path d="M3.6 6.9a6.4 6.4 0 0 1 8.8 0" />
+              <path d="M6.2 9.5a2.8 2.8 0 0 1 3.6 0" />
+            </svg>
+            <svg width="25" height="12" viewBox="0 0 25 12" fill="none">
+              <rect x="0.8" y="0.8" width="21" height="10.4" rx="3" stroke="currentColor" stroke-opacity=".4"
+                stroke-width="1.2" />
+              <rect x="2.6" y="2.6" width="15" height="6.8" rx="2" fill="currentColor" />
+              <path d="M23.4 4.4v3.2c1-.3 1.4-.8 1.4-1.6s-.4-1.3-1.4-1.6z" fill="currentColor" fill-opacity=".4" />
+            </svg>
+          </span>
+        </div>
+
+        <!-- Tab 页容器 -->
+        <div id="tab-layer"></div>
+
+        <!-- 二级页栈 -->
+        <div id="stack-layer"></div>
+
+        <!-- UI 层：Sheet / Modal / Toast / 推送横幅 -->
+        <div id="ui-layer"></div>
+
+        <!-- 全局 ＋ -->
+        <div id="fab-layer" class="fab-layer"></div>
+
+        <!-- 底部 TabBar -->
+        <nav id="tabbar" class="tabbar"></nav>
+
+        <div class="home-indicator"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/core/namespace.js"></script>
+  <script src="assets/js/core/dom.js"></script>
+  <script src="assets/js/core/bus.js"></script>
+  <script src="assets/js/core/format.js"></script>
+  <script src="assets/js/components/icon.js"></script>
+  <script src="assets/js/data/schema.js"></script>
+  <script src="assets/js/data/seed.js"></script>
+  <script src="assets/js/core/store.js"></script>
+  <script src="assets/js/core/ui.js"></script>
+  <script src="assets/js/core/router.js"></script>
+  <script src="assets/js/components/fab.js"></script>
+  <script src="assets/js/components/tabbar.js"></script>
+  <script src="assets/js/pages/today.js"></script>
+  <script src="assets/js/pages/growth.js"></script>
+  <script src="assets/js/pages/goal-detail.js"></script>
+  <script src="assets/js/pages/capture.js"></script>
+  <script src="assets/js/pages/reading.js"></script>
+  <script src="assets/js/pages/book-detail.js"></script>
+  <script src="assets/js/pages/weekly.js"></script>
+  <script src="assets/js/pages/stats.js"></script>
+  <script src="assets/js/pages/notifications.js"></script>
+  <script src="assets/js/pages/me.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+# 云端构建 Android APK —— 本机不需要装 JDK / Android SDK
+#
+# 用法：把本仓库推到 GitHub → Actions → 选 "Build Android APK" → Run workflow
+# 跑完在 Artifacts 里下载 growth-os-apk，解压得到 app-debug.apk
+name: Build Android APK
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 拉取代码
+        uses: actions/checkout@v4
+
+      - name: 准备 Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: 准备 JDK 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '21'
+
+      # 装 Android SDK 并自动接受 licenses
+      - name: 准备 Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: 安装 Android SDK 组件（API 36）
+        run: |
+          sdkmanager --install "platform-tools" "platforms;android-36" "build-tools;36.0.0" || true
+
+      - name: 安装 npm 依赖
+        run: npm install --no-audit --no-fund
+
+      # npm run sync = build（生成 www/）+ cap sync android（同步进原生工程）
+      - name: 构建 Web 资源并同步到 Android
+        run: npm run sync
+
+      - name: 授权 gradlew
+        run: chmod +x android/gradlew
+
+      - name: 构建 Debug APK
+        run: node scripts/gradle.mjs assembleDebug
+
+      - name: 查看产物
+        run: ls -lh android/app/build/outputs/apk/debug/
+
+      - name: 上传 APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: growth-os-apk
+          path: android/app/build/outputs/apk/debug/app-debug.apk
+          if-no-files-found: error

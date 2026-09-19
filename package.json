@@ -1,0 +1,23 @@
+{
+  "name": "growth-os",
+  "version": "1.0.0",
+  "private": true,
+  "description": "个人成长 OS（Growth OS）· Android App 第一版",
+  "scripts": {
+    "build": "node scripts/build-web.mjs",
+    "sync": "npm run build && cap sync android",
+    "android": "npm run sync && cap open android",
+    "apk": "npm run sync && node scripts/gradle.mjs assembleDebug",
+    "install": "npm run apk && node scripts/gradle.mjs installDebug",
+    "aab": "npm run sync && node scripts/gradle.mjs bundleRelease",
+    "check": "node _check.js",
+    "smoke": "node _smoke.js"
+  },
+  "dependencies": {
+    "@capacitor/android": "^8.5.2",
+    "@capacitor/core": "^8.5.2"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^8.5.2"
+  }
+}

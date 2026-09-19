@@ -1,0 +1,181 @@
+/* ============================================================
+   Growth OS · 设计 Token
+   唯一定义颜色 / 圆角 / 阴影 / 间距 / 字号 / 字体 / 动效 的地方。
+   规则：除本文件外，任何 CSS 不得出现十六进制颜色值。
+   ============================================================ */
+
+:root {
+  /* ---------- 背景 / 表面（暖白系，避免冷感） ---------- */
+  --bg-app: #FAF9F5;
+  --bg-canvas: #F3F2ED;
+  --surface: #FFFFFF;
+  --surface-2: #F7F6F1;
+  --surface-3: #EFEEE8;
+
+  /* ---------- 主色：柔和绿（低饱和抹茶 / sage） ---------- */
+  --green-50: #F0F6EF;
+  --green-100: #DCEAD9;
+  --green-200: #C0DABD;
+  --green-300: #9FC79C;
+  --green-400: #7FB07C;
+  --green-500: #5F9760;
+  --green-600: #4E8050;
+  --green-700: #3E6740;
+
+  /* ---------- 辅助色：浅蓝 ---------- */
+  --blue-50: #EFF5FA;
+  --blue-100: #DCE9F3;
+  --blue-200: #BFDAEC;
+  --blue-300: #9EC5DE;
+  --blue-400: #7FADCB;
+  --blue-500: #5E93B5;
+  --blue-600: #4C7A97;
+
+  /* ---------- 强调色：暖黄 ---------- */
+  --amber-50: #FDF6E9;
+  --amber-100: #FAEBCE;
+  --amber-200: #F5DDA6;
+  --amber-300: #EDC878;
+  --amber-400: #E3B054;
+  --amber-500: #C9922F;
+
+  /* ---------- 文本（带一点绿调，避免纯黑） ---------- */
+  --text-1: #2E332E;
+  --text-2: #6A716A;
+  --text-3: #9AA19A;
+  --text-inverse: #FFFFFF;
+
+  /* ---------- 语义色 ---------- */
+  --success: #5F9760;
+  --success-bg: #EAF3E8;
+  --warning: #DDA84F;
+  --warning-bg: #FAF2E3;
+  --danger: #C98376;
+  --danger-bg: #FAEDEA;
+  --info: #5E93B5;
+  --info-bg: #E9F1F8;
+
+  /* ---------- 边框 / 分割 ---------- */
+  --border: #E8E6DF;
+  --border-strong: #DCD9D0;
+  --divider: #F0EEE8;
+
+  /* ---------- 4 大成长领域（solid 图形 / bg 底色 / text 文字） ---------- */
+  --area-body-solid: #6EA96B;
+  --area-body-bg: #EAF3E8;
+  --area-body-text: #3E6740;
+  --area-mind-solid: #6E9FC4;
+  --area-mind-bg: #E9F1F8;
+  --area-mind-text: #3B5F7D;
+  --area-skill-solid: #9C8AC0;
+  --area-skill-bg: #F0EDF7;
+  --area-skill-text: #574C7A;
+  --area-life-solid: #D9AE66;
+  --area-life-bg: #FAF2E3;
+  --area-life-text: #8A6A32;
+
+  /* ---------- 书封渐变（装饰用） ---------- */
+  --cover-teal: linear-gradient(150deg, #8FBFA8 0%, #5F9760 100%);
+  --cover-amber: linear-gradient(150deg, #E3C489 0%, #C9922F 100%);
+  --cover-violet: linear-gradient(150deg, #B4A6D4 0%, #7E6BA8 100%);
+  --cover-blue: linear-gradient(150deg, #9EC5DE 0%, #4C7A97 100%);
+  --cover-green: linear-gradient(150deg, #9FC79C 0%, #3E6740 100%);
+
+  /* ---------- 预览外壳 ---------- */
+  --frame-shell: linear-gradient(165deg, #FCFCFD 0%, #EFEFF2 100%);
+  --desk-bg: #EFEDE7;
+  --desk-blob-1: #DCEAD9;
+  --desk-blob-2: #DCE9F3;
+  --frame: #E7E5E0;
+
+  /* ---------- 主题（切换只覆盖这 3 个变量） ---------- */
+  --primary: var(--green-500);
+  --primary-strong: var(--green-600);
+  --primary-tint: var(--green-50);
+  --primary-deep: var(--green-700);
+}
+
+:root[data-theme="blue"] {
+  --primary: var(--blue-500);
+  --primary-strong: var(--blue-600);
+  --primary-tint: var(--blue-50);
+  --primary-deep: var(--blue-600);
+}
+
+:root[data-theme="amber"] {
+  --primary: var(--amber-400);
+  --primary-strong: var(--amber-500);
+  --primary-tint: var(--amber-50);
+  --primary-deep: var(--amber-500);
+}
+
+:root {
+  /* ---------- 圆角（PRD 14~20px） ---------- */
+  --r-xs: 8px;
+  --r-sm: 12px;
+  --r-md: 14px;
+  --r-lg: 18px;
+  --r-xl: 20px;
+  --r-2xl: 28px;
+  --r-pill: 999px;
+
+  /* ---------- 阴影：轻，色相统一文本色，上限 .11 ---------- */
+  --shadow-1: 0 1px 2px rgba(46, 51, 46, .04), 0 2px 8px rgba(46, 51, 46, .045);
+  --shadow-2: 0 2px 6px rgba(46, 51, 46, .05), 0 8px 20px rgba(46, 51, 46, .06);
+  --shadow-3: 0 8px 16px rgba(46, 51, 46, .06), 0 20px 44px rgba(46, 51, 46, .11);
+  --shadow-fab: 0 4px 12px rgba(78, 128, 80, .30), 0 10px 26px rgba(78, 128, 80, .20);
+
+  /* ---------- 间距（4pt 栅格） ---------- */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 20px;
+  --sp-6: 24px;
+  --sp-8: 32px;
+  --sp-10: 40px;
+  --sp-12: 48px;
+  --gutter: 20px;
+  --gap-card: 12px;
+  --gap-sec: 28px;
+
+  /* ---------- 字号阶梯 ---------- */
+  --fs-11: 11px;
+  --fs-12: 12px;
+  --fs-13: 13px;
+  --fs-14: 14px;
+  --fs-15: 15px;
+  --fs-17: 17px;
+  --fs-20: 20px;
+  --fs-24: 24px;
+  --fs-34: 34px;
+  --lh-tight: 1.25;
+  --lh-normal: 1.5;
+  --lh-relaxed: 1.7;
+
+  /* ---------- 字体 ---------- */
+  --font-sans: "PingFang SC", "HarmonyOS Sans SC", "Source Han Sans SC", "Noto Sans CJK SC",
+    "Microsoft YaHei", "微软雅黑", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-emoji: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Segoe UI Symbol";
+
+  /* ---------- 动效 ---------- */
+  --dur-fast: 140ms;
+  --dur: 220ms;
+  --dur-slow: 380ms;
+  --dur-count: 900ms;
+  --ease-out: cubic-bezier(.22, .61, .36, 1);
+  --ease-in-out: cubic-bezier(.4, 0, .2, 1);
+  --ease-spring: cubic-bezier(.34, 1.4, .64, 1);
+
+  /* ---------- 层级 ---------- */
+  --z-content: 1;
+  --z-fab: 60;
+  --z-tabbar: 70;
+  --z-scrim: 80;
+  --z-sheet: 90;
+  --z-toast: 100;
+
+  --tabbar-h: 64px;
+  --statusbar-h: 44px;
+}

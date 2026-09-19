@@ -1,0 +1,186 @@
+/* me.css · 我的 / 统计 / 通知 */
+
+.me-hero {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4);
+  margin: 0 calc(var(--gutter) * -1);
+  padding: var(--sp-2) var(--gutter) var(--sp-6);
+  background: linear-gradient(160deg, var(--green-50) 0%, var(--blue-50) 100%);
+}
+
+.me-avatar {
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  border-radius: var(--r-pill);
+  background: linear-gradient(150deg, var(--green-300), var(--green-600));
+  color: var(--text-inverse);
+  font-size: 22px;
+  font-weight: 600;
+  box-shadow: 0 0 0 3px var(--surface);
+}
+
+.me-name {
+  font-size: var(--fs-20);
+  font-weight: 700;
+  letter-spacing: -.01em;
+}
+
+.me-sub {
+  margin-top: 2px;
+  font-size: var(--fs-12);
+  color: var(--text-2);
+}
+
+/* 周报入口 */
+.weekly-entry {
+  display: grid;
+  grid-template-columns: 36px 1fr auto;
+  gap: var(--sp-3);
+  align-items: center;
+  width: 100%;
+  margin-top: var(--gap-card);
+  padding: var(--sp-4);
+  border-radius: var(--r-lg);
+  background: var(--primary-tint);
+  box-shadow: inset 0 0 0 1px var(--green-100);
+  text-align: left;
+}
+
+.weekly-entry__icon {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--r-sm);
+  background: var(--surface);
+  color: var(--primary-strong);
+}
+
+/* 统计页 */
+.trend-wrap {
+  padding: var(--sp-4);
+  border-radius: var(--r-lg);
+  background: var(--surface);
+  box-shadow: var(--shadow-1);
+}
+
+.trend-svg {
+  width: 100%;
+  height: 120px;
+}
+
+.habit-stat-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--sp-3);
+  align-items: center;
+  padding: var(--sp-3) 0;
+}
+
+.habit-stat-row + .habit-stat-row {
+  border-top: 1px solid var(--divider);
+}
+
+/* 通知 */
+.reminder-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  padding: var(--sp-4);
+  border-radius: var(--r-lg);
+  background: var(--surface);
+  box-shadow: var(--shadow-1);
+}
+
+.reminder-card + .reminder-card {
+  margin-top: var(--gap-card);
+}
+
+.reminder-head {
+  display: grid;
+  grid-template-columns: 36px 1fr auto;
+  gap: var(--sp-3);
+  align-items: center;
+}
+
+.reminder-icon {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--r-pill);
+  background: var(--primary-tint);
+  color: var(--primary-strong);
+}
+
+.reminder-ops-label {
+  font-size: var(--fs-11);
+  color: var(--text-3);
+  letter-spacing: .04em;
+  margin-bottom: 6px;
+}
+
+.reminder-ops {
+  display: flex;
+  gap: var(--sp-2);
+}
+
+.reminder-ops .btn-mini {
+  flex: 1;
+  height: 34px;
+  background: var(--surface-2);
+  color: var(--text-2);
+  font-weight: 500;
+}
+
+.reminder-foot {
+  display: flex;
+  justify-content: space-between;
+  padding-top: var(--sp-1);
+  border-top: 1px solid var(--divider);
+}
+
+.switch-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--sp-3);
+  align-items: center;
+  padding: var(--sp-4);
+  width: 100%;
+  text-align: left;
+}
+
+.switch-row + .switch-row {
+  box-shadow: inset 0 1px 0 var(--divider);
+}
+
+/* 主题选择 */
+.theme-swatches {
+  display: flex;
+  gap: var(--sp-3);
+}
+
+.swatch {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: var(--sp-3);
+  border-radius: var(--r-md);
+  background: var(--surface);
+  box-shadow: var(--shadow-1);
+  width: 88px;
+}
+
+.swatch.is-on {
+  box-shadow: inset 0 0 0 2px var(--primary-strong);
+}
+
+.swatch__dot {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--r-pill);
+}

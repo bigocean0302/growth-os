@@ -1,0 +1,13 @@
+{
+  "appId": "com.growthos.app",
+  "appName": "个人成长 OS",
+  "webDir": "www",
+  "server": {
+    "androidScheme": "https"
+  },
+  "android": {
+    "allowMixedContent": false,
+    "webContentsDebuggingEnabled": true
+  },
+  "loggingBehavior": "none"
+}

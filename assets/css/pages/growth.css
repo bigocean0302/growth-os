@@ -1,0 +1,251 @@
+/* growth.css · 成长目标页 */
+
+/* ---------- 领域网格 ---------- */
+.area-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--gap-card);
+}
+
+.area-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  padding: var(--sp-4);
+  border-radius: var(--r-lg);
+  background: var(--area-body-bg);
+  text-align: left;
+  transition: transform var(--dur-fast) var(--ease-out);
+}
+
+.area-card[data-area="body"] { background: var(--area-body-bg); }
+.area-card[data-area="mind"] { background: var(--area-mind-bg); }
+.area-card[data-area="skill"] { background: var(--area-skill-bg); }
+.area-card[data-area="life"] { background: var(--area-life-bg); }
+
+.area-card:active {
+  transform: scale(.975);
+}
+
+.area-card__emoji {
+  font-size: 22px;
+  line-height: 1;
+}
+
+.area-card__name {
+  font-size: var(--fs-15);
+  font-weight: 600;
+}
+
+.area-card[data-area="body"] .area-card__name { color: var(--area-body-text); }
+.area-card[data-area="mind"] .area-card__name { color: var(--area-mind-text); }
+.area-card[data-area="skill"] .area-card__name { color: var(--area-skill-text); }
+.area-card[data-area="life"] .area-card__name { color: var(--area-life-text); }
+
+.area-card__desc {
+  font-size: var(--fs-11);
+  color: var(--text-2);
+  line-height: 1.35;
+}
+
+.area-card__count {
+  font-size: var(--fs-12);
+  color: var(--text-2);
+}
+
+.area-card__bar {
+  margin-top: 2px;
+}
+
+.area-card__bar .bar__fill[data-area="body"] { background: var(--area-body-solid); }
+.area-card__bar .bar__fill[data-area="mind"] { background: var(--area-mind-solid); }
+.area-card__bar .bar__fill[data-area="skill"] { background: var(--area-skill-solid); }
+.area-card__bar .bar__fill[data-area="life"] { background: var(--area-life-solid); }
+
+.area-card--add {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: transparent;
+  border: 1.5px dashed var(--border-strong);
+  color: var(--text-3);
+  font-size: var(--fs-13);
+}
+
+/* 领域内联展开的目标列表 */
+.area-inline {
+  margin-top: var(--sp-2);
+}
+
+/* ---------- 目标卡 ---------- */
+.goal-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-card);
+}
+
+.goal-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  padding: var(--sp-4);
+  border-radius: var(--r-lg);
+  background: var(--surface);
+  box-shadow: var(--shadow-1);
+  text-align: left;
+  transition: transform var(--dur-fast) var(--ease-out);
+}
+
+.goal-card:active {
+  transform: scale(.985);
+}
+
+.goal-card__top {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--sp-3);
+  align-items: flex-start;
+}
+
+.goal-card__name {
+  font-size: var(--fs-17);
+  font-weight: 600;
+  letter-spacing: -.01em;
+}
+
+.goal-card__meta {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  margin-top: var(--sp-2);
+  font-size: var(--fs-12);
+  color: var(--text-3);
+}
+
+.goal-card__pct {
+  font-size: var(--fs-20);
+  font-weight: 700;
+  color: var(--primary-deep);
+  font-variant-numeric: tabular-nums;
+}
+
+.goal-card__foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: var(--fs-12);
+  color: var(--text-3);
+}
+
+/* ---------- 里程碑（目标详情复用） ---------- */
+.ms-row {
+  display: grid;
+  grid-template-columns: 28px 1fr auto;
+  gap: var(--sp-3);
+  align-items: center;
+  padding: var(--sp-3) 0;
+}
+
+.ms-row + .ms-row {
+  border-top: 1px solid var(--divider);
+}
+
+.ms-title {
+  font-size: var(--fs-15);
+  color: var(--text-1);
+}
+
+.ms-row[data-done="true"] .ms-title {
+  color: var(--text-3);
+}
+
+.ms-right {
+  font-size: var(--fs-12);
+  color: var(--text-3);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- 目标详情 ---------- */
+.goal-hero {
+  padding: 0 var(--gutter) var(--sp-4);
+}
+
+.goal-hero__title {
+  font-size: var(--fs-24);
+  font-weight: 700;
+  letter-spacing: -.01em;
+}
+
+.goal-hero__desc {
+  margin-top: var(--sp-2);
+  font-size: var(--fs-14);
+  color: var(--text-2);
+  line-height: var(--lh-relaxed);
+}
+
+.goal-hero__meta {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  margin-top: var(--sp-3);
+  font-size: var(--fs-13);
+  color: var(--text-3);
+  font-variant-numeric: tabular-nums;
+}
+
+.goal-progress-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+.goal-progress__value {
+  font-size: var(--fs-34);
+  font-weight: 700;
+  color: var(--primary-deep);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -.02em;
+  line-height: 1;
+}
+
+.goal-week-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-3);
+}
+
+.goal-week-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: var(--sp-3);
+  border-radius: var(--r-sm);
+  background: var(--surface-2);
+}
+
+.goal-week-cell__v {
+  font-size: var(--fs-20);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.goal-week-cell__l {
+  font-size: var(--fs-11);
+  color: var(--text-3);
+}
+
+/* 计时按钮 */
+.timer-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 34px;
+  padding: 0 var(--sp-4);
+  border-radius: var(--r-pill);
+  background: var(--primary-strong);
+  color: var(--text-inverse);
+  font-size: var(--fs-13);
+  font-weight: 600;
+}

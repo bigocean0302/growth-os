@@ -1,0 +1,202 @@
+/* today.css · 今日页（只允许写布局与局部装饰） */
+
+/* ---------- 周报入口卡 ---------- */
+.weekly-teaser {
+  display: grid;
+  grid-template-columns: 40px 1fr auto;
+  gap: var(--sp-3);
+  align-items: center;
+  padding: var(--sp-3) var(--sp-4);
+  border-radius: var(--r-lg);
+  background: linear-gradient(135deg, var(--green-50) 0%, var(--blue-50) 100%);
+  box-shadow: var(--shadow-1);
+}
+
+.weekly-teaser__icon {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--r-sm);
+  background: var(--surface);
+  color: var(--primary-strong);
+  box-shadow: var(--shadow-1);
+}
+
+.weekly-teaser__title {
+  font-size: var(--fs-15);
+  font-weight: 600;
+  color: var(--text-1);
+}
+
+.weekly-teaser__sub {
+  margin-top: 2px;
+  font-size: var(--fs-12);
+  color: var(--text-2);
+}
+
+.weekly-teaser__right {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+}
+
+.weekly-teaser__detail {
+  margin-top: var(--sp-3);
+  padding-top: var(--sp-3);
+  border-top: 1px solid var(--border);
+}
+
+/* ---------- 今日成长 hero ---------- */
+.growth-hero {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+  margin-top: var(--gap-card);
+  padding: var(--sp-5);
+  border-radius: var(--r-xl);
+  background: var(--surface);
+  box-shadow: var(--shadow-1);
+}
+
+.growth-hero__top {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--sp-4);
+  align-items: center;
+}
+
+.growth-hero__label {
+  font-size: var(--fs-12);
+  color: var(--text-3);
+  letter-spacing: .03em;
+}
+
+.growth-hero__value {
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+  margin-top: var(--sp-1);
+  font-size: var(--fs-34);
+  font-weight: 700;
+  line-height: 1;
+  color: var(--primary-deep);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -.02em;
+}
+
+.growth-hero__unit {
+  font-size: var(--fs-17);
+  font-weight: 600;
+}
+
+.growth-hero__sub {
+  margin-top: var(--sp-2);
+  font-size: var(--fs-13);
+  color: var(--text-2);
+}
+
+.growth-hero__ring {
+  display: grid;
+  place-items: center;
+}
+
+.growth-hero__ring .ring__center {
+  font-size: var(--fs-20);
+}
+
+/* 领域堆叠条 */
+.area-stack {
+  display: flex;
+  gap: 2px;
+  height: 6px;
+  margin-top: var(--sp-4);
+  border-radius: var(--r-pill);
+  overflow: hidden;
+  background: var(--surface-3);
+}
+
+.area-stack__seg {
+  height: 100%;
+  transition: flex-grow 600ms var(--ease-out);
+}
+
+.area-stack__seg[data-area="body"] { background: var(--area-body-solid); }
+.area-stack__seg[data-area="mind"] { background: var(--area-mind-solid); }
+.area-stack__seg[data-area="skill"] { background: var(--area-skill-solid); }
+.area-stack__seg[data-area="life"] { background: var(--area-life-solid); }
+
+.hero-detail {
+  margin-top: var(--sp-3);
+  padding-top: var(--sp-3);
+  border-top: 1px solid var(--divider);
+}
+
+.hero-detail__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 0;
+  font-size: var(--fs-13);
+  color: var(--text-2);
+}
+
+.hero-detail__row b {
+  color: var(--text-1);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.hero-detail__note {
+  margin-top: var(--sp-2);
+  font-size: var(--fs-11);
+  color: var(--text-3);
+}
+
+/* ---------- 已完成折叠条 ---------- */
+.done-fold {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 36px;
+  margin-top: var(--sp-2);
+  padding: 0 var(--sp-4);
+  border-radius: var(--r-sm);
+  background: var(--surface-2);
+  color: var(--text-2);
+  font-size: var(--fs-13);
+}
+
+.done-fold__list {
+  padding-top: var(--sp-2);
+}
+
+/* ---------- 时间线区块 ---------- */
+.tl-card {
+  padding: var(--sp-4);
+  border-radius: var(--r-lg);
+  background: var(--surface);
+  box-shadow: var(--shadow-1);
+}
+
+/* ---------- 底部记录按钮 ---------- */
+.capture-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-2);
+  width: 100%;
+  height: 52px;
+  margin-top: var(--gap-sec);
+  border-radius: var(--r-md);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--primary-strong);
+  font-size: var(--fs-15);
+  font-weight: 600;
+  transition: transform var(--dur-fast) var(--ease-out);
+}
+
+.capture-cta:active {
+  transform: scale(.98);
+}
